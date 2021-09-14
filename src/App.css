@@ -1,38 +1,187 @@
-.App {
-  text-align: center;
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+@import url(//db.onlinewebfonts.com/c/9da41c570d5a221cb2486d78769a076d?family=Neue+Helvetica);
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* // 10px/16px = 62.5% -> 1rem = 10px; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    display: grid;
+    justify-items: center;
+    min-height: 100vh;
+    font-family: "Roboto", sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+    display: flex;
+    flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+    display: flex;
+    margin-top: 9rem;
+    font-size: 4rem;
+    font-weight: 700;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sub-header {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.4rem;
+    line-height: 28px;
+    margin: 4rem 0;
+}
+
+.rating {
+    display: flex;
+    padding: 5rem 0;
+    justify-content: space-between;
+    border-bottom: 1px solid #B9B9B9;
+}
+
+.rating-overview {
+    display: flex;
+    justify-content: center;
+}
+
+.rating-overview_rating_number {
+    font-size: 4.4rem;
+    font-weight: 400;
+    margin-right: 2rem;
+}
+
+.rating-overview_rating_star {
+    align-self: center;
+    font-size: x-large;
+}
+
+.star_yellow {
+    color: #ffcd69;
+    text-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.star_ash {
+    color: #E0E0E0;
+    text-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.rating-button {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    box-shadow: 0px 1px 2px rgb(0 0 0 / 20%);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    height: 3.9rem;
+    font-family: "Helvetica Neue";
+    font-size: 1.7rem;
+    font-weight: bold;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #797874;
+    width: fit-content;
+    text-decoration: none;
+}
+
+.rating-button:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 1px rgb(0 0 0 / 20%);
+}
+
+.reviews {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.reviews-header {
+    display: flex;
+    margin: 4rem 0;
+    font-size: 4rem;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 2.8rem;
+    line-height: 33px;
+}
+
+.review-single {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.rating-overview_rating_star {
+    display: flex;
+}
+
+.review-single__info {
+    padding: 0 2rem;
+    font-size: 2rem;
+    line-height: 23px;
+    color: #929292;
+}
+
+.review-single__info>span {
+    font-weight: bold;
+    color: black;
+}
+
+.container-rating_star {
+    display: flex;
+    align-self: flex-start;
+    font-size: x-large;
+}
+
+.container-rating_star i {
+    cursor: pointer;
+}
+
+.container-input {
+    border: none;
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 23px;
+    color: #929292;
+    margin-bottom: 4rem;
+}
+
+.container-input:focus {
+    border: none;
+    outline: none;
+}
+
+.container-button {
+    padding: 2.6rem 5rem;
+    
+}
+
+.error{
+    color: red;
+    font-size: medium;
+    width: fit-content;
+    margin: 2rem;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    background-color: rgba(247, 146, 146, 0.479);
+}
+.success{
+    color: rgba(5, 168, 5, 0.712);
+    background-color: rgba(95, 240, 95, 0.582);
+    font-size: medium;
+    width: fit-content;
+    margin: 2rem;
+    padding: .5rem 1rem;
+    border-radius: 4px;
 }
