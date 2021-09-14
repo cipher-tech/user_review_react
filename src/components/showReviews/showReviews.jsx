@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 
-const ShowReviews = ({showAddReview}) => {
+const ShowReviews = ({showAddReview, socket}) => {
     const [reviews, setReviews] = useState([])
     const [avgRating, setAvgRating] = useState(1)
     // const [starRating, setStarRating] = useState([])
     const [error, setError] = useState('')
 
     useEffect(() => {
+        socket.emit("joinRoom", { })
+
         fetch('http://localhost:3000/get_reviews', {
             method: "GET",
             headers: {
@@ -27,7 +29,11 @@ const ShowReviews = ({showAddReview}) => {
             .catch(error => {
                 setError('could not get reviews')
             })
-    }, [])
+            
+            socket.on("New_review", (data) => {
+                console.log(data);
+            })
+    }, [socket])
 
     const displayStars = (number) => {
         let stars = []
