@@ -7,9 +7,8 @@ const ShowReviews = ({showAddReview, socket}) => {
     const [error, setError] = useState('')
 
     useEffect(() => {
-        socket.emit("joinRoom", { })
 
-        fetch('http://localhost:3000/get_reviews', {
+        fetch('https://user-review-server.herokuapp.com/get_reviews', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -30,9 +29,10 @@ const ShowReviews = ({showAddReview, socket}) => {
                 setError('could not get reviews')
             })
             
-            socket.on("New_review", (data) => {
-                console.log(data);
-            })
+            socket.on("New_review", async (data) => {
+                await setReviews(data.reviews || [])                
+            }) 
+            
     }, [socket])
 
     const displayStars = (number) => {
