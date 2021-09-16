@@ -8,23 +8,46 @@
     box-sizing: inherit;
     font-family: inherit;
 }
-
 html {
     box-sizing: border-box;
     font-size: 62.5%;
     /* // 10px/16px = 62.5% -> 1rem = 10px; */
 }
-
+#root{
+    display: flex;
+}
 body {
     display: grid;
     justify-items: center;
     min-height: 100vh;
     font-family: "Roboto", sans-serif;
 }
-
+.spinner{
+    align-self: center;
+    font-size: 3rem;
+    transition: all 1s 0s ease-in;
+    animation: rotate 1.5s 0s ease-in infinite;
+}
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    from{
+        transform: rotate(-360deg);
+    }
+}
+@-webkit-keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
 .container {
     display: flex;
     flex-direction: column;
+    padding: 0 1rem;
 }
 
 .header {

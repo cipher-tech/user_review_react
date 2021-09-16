@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import AddReview from './components/addReview/addReview';
 import ShowReviews from './components/showReviews/showReviews';
 import io from "socket.io-client";
  
-const socket = io('http://localhost:3000');
+const socket = io('https://user-review-server.herokuapp.com');
 
 function App() {
 
