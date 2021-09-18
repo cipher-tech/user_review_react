@@ -80,7 +80,7 @@ const ShowReviews = ({ showAddReview, socket }) => {
                                 </p>
 
                                 <p className="review-single__info">
-                                    <span> {Math.floor(review.rating)}, </span> {review.comment}
+                                    <span> {review.rating}, </span> {review.comment}
                                 </p>
                             </div>
                         ))
