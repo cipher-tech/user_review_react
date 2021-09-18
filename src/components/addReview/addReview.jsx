@@ -33,8 +33,8 @@ const AddReview = ({ showAddReview, socket }) => {
             {error ? <p className="error">{error} </p> : null}
             {message ? <p className="success">{message}</p> : null}
             <h2 className="header">What’s your rating?</h2>
-            <h4 className="sub-header">Rating
-                <small>double click to add half star</small>
+            <h4 className="sub-header">Rating 
+                <small>(double click to add half star)</small>
             </h4>
             <p className="container-rating_star">
                 <span id="star_rating">
