@@ -6,6 +6,14 @@ const ShowReviews = ({ showAddReview, socket }) => {
     const [showSpinner, setShowSpinner] = useState(true)
     const [error, setError] = useState('')
 
+    const calculateAverageRating = (reviews) => {
+        if(reviews.length > 1) {
+            return reviews.reduce((counter, value) => {
+                return counter + value.rating
+            }, 0)
+        }
+        return 1
+    }
     useEffect(() => {
 
         fetch('https://user-review-server.herokuapp.com/get_reviews', {
@@ -18,9 +26,7 @@ const ShowReviews = ({ showAddReview, socket }) => {
                 const data = await res.json()
                 await setReviews(data)
 
-                const totalRating = data.reduce((counter, value) => {
-                    return counter + value.rating
-                }, 0)
+                const totalRating = calculateAverageRating(data)
                 const averageRating = totalRating / data.length
                 setAvgRating(averageRating.toFixed(1))
                 setShowSpinner(false)
@@ -29,8 +35,11 @@ const ShowReviews = ({ showAddReview, socket }) => {
                 setError('could not get reviews')
             })
 
-        socket.on("New_review", async (data) => {
-            await setReviews(data.reviews || [])
+        socket.on("New_review", async ({reviews = []}) => {
+            await setReviews(reviews)
+            console.log(reviews);
+            const totalRating = calculateAverageRating(reviews)
+            const averageRating = totalRating / reviews.length
             setAvgRating(averageRating.toFixed(1))
         })
 
