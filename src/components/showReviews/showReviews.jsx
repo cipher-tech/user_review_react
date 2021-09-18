@@ -31,6 +31,7 @@ const ShowReviews = ({ showAddReview, socket }) => {
 
         socket.on("New_review", async (data) => {
             await setReviews(data.reviews || [])
+            setAvgRating(averageRating.toFixed(1))
         })
 
     }, [socket])
