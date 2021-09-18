@@ -1,7 +1,7 @@
 {
     "name": "user_review_react",
     "version": "0.1.0",
-    "homepage": "https://cipher-tech.github.com/user_review_react",
+    "homepage": "https://cipher-tech.github.io/user_review_react",
     "private": true,
     "dependencies": {
         "@testing-library/jest-dom": "^5.11.4",
