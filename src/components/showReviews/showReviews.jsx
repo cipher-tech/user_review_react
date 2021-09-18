@@ -85,7 +85,7 @@ const ShowReviews = ({ showAddReview, socket }) => {
                             <div key={review._id} className="review-single">
                                 <p className="rating-overview_rating_star">
                                     <span>
-                                        {displayStars(Math.floor(review.rating))}
+                                        {displayStars(review.rating)}
                                     </span>
                                 </p>
 
